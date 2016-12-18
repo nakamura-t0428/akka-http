@@ -57,14 +57,17 @@ object HttpMethods extends ObjectRegistry[String, HttpMethod] {
   private def register(method: HttpMethod): HttpMethod = register(method.value, method)
 
   // format: OFF
-  val CONNECT = register(HttpMethod("CONNECT", isSafe = false, isIdempotent = false, requestEntityAcceptance = Disallowed))
+//  val CONNECT = register(HttpMethod("CONNECT", isSafe = false, isIdempotent = false, requestEntityAcceptance = Disallowed))
+  val CONNECT = register(HttpMethod("CONNECT", isSafe = false, isIdempotent = false, requestEntityAcceptance = Tolerated))
   val DELETE  = register(HttpMethod("DELETE" , isSafe = false, isIdempotent = true , requestEntityAcceptance = Tolerated))
   val GET     = register(HttpMethod("GET"    , isSafe = true , isIdempotent = true , requestEntityAcceptance = Tolerated))
-  val HEAD    = register(HttpMethod("HEAD"   , isSafe = true , isIdempotent = true , requestEntityAcceptance = Disallowed))
+//  val HEAD    = register(HttpMethod("HEAD"   , isSafe = true , isIdempotent = true , requestEntityAcceptance = Disallowed))
+  val HEAD    = register(HttpMethod("HEAD"   , isSafe = true , isIdempotent = true , requestEntityAcceptance = Tolerated))
   val OPTIONS = register(HttpMethod("OPTIONS", isSafe = true , isIdempotent = true , requestEntityAcceptance = Expected))
   val PATCH   = register(HttpMethod("PATCH"  , isSafe = false, isIdempotent = false, requestEntityAcceptance = Expected))
   val POST    = register(HttpMethod("POST"   , isSafe = false, isIdempotent = false, requestEntityAcceptance = Expected))
   val PUT     = register(HttpMethod("PUT"    , isSafe = false, isIdempotent = true , requestEntityAcceptance = Expected))
-  val TRACE   = register(HttpMethod("TRACE"  , isSafe = true , isIdempotent = true , requestEntityAcceptance = Disallowed))
+//  val TRACE   = register(HttpMethod("TRACE"  , isSafe = true , isIdempotent = true , requestEntityAcceptance = Disallowed))
+  val TRACE   = register(HttpMethod("TRACE"  , isSafe = true , isIdempotent = true , requestEntityAcceptance = Tolerated))
   // format: ON
 }
